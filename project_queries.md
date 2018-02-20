@@ -344,4 +344,80 @@ GROUP BY dc_sales ASC LIMIT 10;
 
 
 
+Which months had similar unemployment?
+SELECT Date, unemployment from econ_pct WHERE unemployment < 0.041 * 1.05 AND unemployment > 0.041 * 0.95;
+None. We had to compute the % change over the 12-month moving average to compare changes in unemployment.
+See the Jupyter notebook.
+2010-03-01
+
+Which products have sold the most?
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+GROUP BY p.name ORDER BY sales DESC;
+Tablet PC (10 in. display, 64 GB)                                  | 4902069145 | 4851254985 |  50814160 |
+| 173 GB SAS Disk                                                    |  818620025 |  712633114 | 105986911 |
+| VPN Appliance (250 Clienti license)                                |  806135927 |  656986577 | 149149350 |
+| Server (1U rackmount, hex-core, 16GB, 8TB)                         |  768481065 |  619406670 | 149074395 |
+| Basic Desktop                                                      |  700655080 |  643103842 |  57551238
+
+Which products have been the most profitable?
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+GROUP BY p.name ORDER BY profits DESC;
+
+VPN Appliance (250 Clienti license)                                |  806135927 |  656986577 | 149149350 |
+| Server (1U rackmount, hex-core, 16GB, 8TB)                         |  768481065 |  619406670 | 149074395 |
+| 173 GB SAS Disk                                                    |  818620025 |  712633114 | 105986911 |
+| Scanner                                                            |  459446737 |  370731095 |  88715642 |
+| VPN Appliance (50 Clienti license)                                 |  689302223 |  628122638 |  61179585 |
+
+Our consumer-grade tech (like tablets) seems to be far less profitable than professional grade equipment (VPN Appliances).
+
+What about during our given economic conditions?
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
+VPN Appliance (250 Clienti license)                                | 685927 | 557001 |  128926 |
+| Tablet PC (10 in. display, 64 GB)                                  | 543566 | 535082 |    8484 |
+| Server (1U rackmount, hex-core, 16GB, 8TB)                         | 470019 | 378842 |   91177 |
+| 173 GB SAS Disk                                                    | 292624 | 249786 |   42838 |
+| Scanner                                                            | 279870 | 223959 |   55911 |
+
+Most profitable products during times with similar change in inflation:
++--------------------------------------------+--------+--------+---------+
+| name                                       | sales  | cost   | profits |
++--------------------------------------------+--------+--------+---------+
+| VPN Appliance (250 Clienti license)        | 685927 | 557001 |  128926 |
+| Server (1U rackmount, hex-core, 16GB, 8TB) | 470019 | 378842 |   91177 |
+| Scanner                                    | 279870 | 223959 |   55911 |
+| 173 GB SAS Disk                            | 292624 | 249786 |   42838 |
+| VPN Appliance (50 Clienti license)         | 196416 | 172258 |   24158 |
++--------------------------------------------+--------+--------+---------+
+
+What about for tbill rates?
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE (f.Date = '2011-09-01' OR f.Date = '2011-12-01' OR f.Date = '2012-01-01' OR f.Date = '2012-02-01' OR f.Date = '2012-05-01' OR f.Date = '2013-01-01' OR f.Date = '2013-02-01' OR f.Date = '2013-03-01' OR f.Date = '2013-05-01')
+GROUP BY p.name ORDER BY sales DESC;
+
+Tablet PC (10 in. display, 64 GB)                                  | 47361352 | 46937004 |  424348 |
+| Server (1U rackmount, hex-core, 16GB, 8TB)                         |  7520304 |  6061472 | 1458832 |
+| 173 GB SAS Disk                                                    |  5893579 |  5102588 |  790991 |
+| Premium Gamer Desktop                                              |  5685636 |  5631736 |   53900 |
+| Basic Desktop                                                      |  5673546 |  5273212 |  400334 |
+
+Most profitable products during times with similar tbill rates
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE (f.Date = '2011-09-01' OR f.Date = '2011-12-01' OR f.Date = '2012-01-01' OR f.Date = '2012-02-01' OR f.Date = '2012-05-01' OR f.Date = '2013-01-01' OR f.Date = '2013-02-01' OR f.Date = '2013-03-01' OR f.Date = '2013-05-01')
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
+| name                                       | sales   | cost    | profits |
++--------------------------------------------+---------+---------+---------+
+| Server (1U rackmount, hex-core, 16GB, 8TB) | 7520304 | 6061472 | 1458832 |
+| VPN Appliance (250 Clienti license)        | 4578340 | 3738508 |  839832 |
+| 173 GB SAS Disk                            | 5893579 | 5102588 |  790991 |
+| Scanner                                    | 3614481 | 2911039 |  703442 |
+| VPN Appliance (50 Clienti license)         | 5530738 | 5035792 |  494946 |
++--------------------------------------------+---------+---------+---------+
+
 
