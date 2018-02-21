@@ -679,4 +679,25 @@ CREATE VIEW brands_VW AS
 SELECT f.Date, p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
 GROUP BY p.brand, f.Date;
 
+SELECT *
+INTO OUTFILE '/tmp/brands.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+ESCAPED BY '\\'
+LINES TERMINATED BY '\n'
+FROM brands_VW;
+
+Which ZIP codes in underperforming states have been most profitable?
+
+SELECT f.state, f.zip, (SUM(p.price) - SUM(p.cost)) profit 
+FROM fact f LEFT JOIN date d ON YEAR(f.Date) = YEAR(d.Date) AND MONTH(f.Date) = MONTH(d.Date) LEFT JOIN product p ON p.prod_id = f.Prod_Id 
+WHERE d.Date = '2011-06-01' AND f.state in ('FL','GA','NC', 'VA', 'PA', 'OH', 'NY', 'NJ', 'MA')
+GROUP BY zip ORDER BY profit DESC LIMIT 5;
+
+Which cities in underperforming states have been most profitable?
+
+SELECT f.state, f.city, (SUM(p.price) - SUM(p.cost)) profit 
+FROM fact f LEFT JOIN date d ON YEAR(f.Date) = YEAR(d.Date) AND MONTH(f.Date) = MONTH(d.Date) LEFT JOIN product p ON p.prod_id = f.Prod_Id 
+WHERE d.Date = '2010-03-01' AND f.state in ('FL','GA','NC', 'VA', 'PA', 'OH', 'NY', 'NJ', 'MA')
+GROUP BY city ORDER BY profit DESC LIMIT 5;
 
