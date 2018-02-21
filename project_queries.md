@@ -420,4 +420,263 @@ LIMIT 5;
 | VPN Appliance (50 Clienti license)         | 5530738 | 5035792 |  494946 |
 +--------------------------------------------+---------+---------+---------+
 
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'CA'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++-------------------------------------+--------+--------+---------+
+| name                                | sales  | cost   | profits |
++-------------------------------------+--------+--------+---------+
+| VPN Appliance (250 Clienti license) | 458658 | 377626 |   81032 |
+| 173 GB SAS Disk                     | 195206 | 163704 |   31502 |
+| Scanner                             | 111606 |  90061 |   21545 |
+| Camcorder (Digital)                 |  86618 |  72852 |   13766 |
+| Extension cord (20 ft., outdoor)    |  29864 |  18037 |   11827 |
++-------------------------------------+--------+--------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'IA'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++--------------------------------------------+--------+--------+---------+
+| name                                       | sales  | cost   | profits |
++--------------------------------------------+--------+--------+---------+
+| Server (1U rackmount, hex-core, 16GB, 8TB) | 470019 | 378842 |   91177 |
+| VPN Appliance (50 Clienti license)         |  50159 |  40551 |    9608 |
+| Scanner                                    |  27549 |  21920 |    5629 |
+| Keyboard (wireless, with nub)              |  13709 |   8518 |    5191 |
+| Firewall                                   |  28039 |  23650 |    4389 |
++--------------------------------------------+--------+--------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'MN'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++-------------------------------------+--------+--------+---------+
+| name                                | sales  | cost   | profits |
++-------------------------------------+--------+--------+---------+
+| VPN Appliance (250 Clienti license) | 227269 | 179375 |   47894 |
+| 128 GB SSD Disk                     |  38689 |  32068 |    6621 |
+| Scanner                             |  28309 |  21912 |    6397 |
+| F Jack Male-to-Male Cable (60 in.)  |   7527 |   3193 |    4334 |
+| 42" Wide Screen TV                  |  55169 |  52343 |    2826 |
++-------------------------------------+--------+--------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'IL'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++-----------------------------------+-------+-------+---------+
+| name                              | sales | cost  | profits |
++-----------------------------------+-------+-------+---------+
+| Tablet PC (7 in. display, 16 GB)  | 35019 | 30769 |    4250 |
+| Server Motherboard                | 54238 | 50761 |    3477 |
+| 64 GB SSD Disk                    | 21929 | 18968 |    2961 |
+| Network Switch (Gigabit, 24-port) | 12729 | 10446 |    2283 |
+| 1.0 TB SATA3 Disk                 | 10509 |  8230 |    2279 |
++-----------------------------------+-------+-------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'KS'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++--------------------------------------+-------+-------+---------+
+| name                                 | sales | cost  | profits |
++--------------------------------------+-------+-------+---------+
+| VPN Appliance (50 Clienti license)   | 50159 | 40551 |    9608 |
+| Cable Modem                          | 13468 | 11371 |    2097 |
+| MP3 Player (8 GB internal memory)    |  9739 |  7825 |    1914 |
+| Rechargeable Batteries (AAA, 4 pack) |  2959 |  1179 |    1780 |
+| Network Switch (Gigabit, 8-port)     |  6639 |  5125 |    1514 |
++--------------------------------------+-------+-------+---------+
+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'MA'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++--------------------+-------+-------+---------+
+| name               | sales | cost  | profits |
++--------------------+-------+-------+---------+
+| Basic Desktop      | 43929 | 37232 |    6697 |
+| XTREME Motherboard | 17789 | 16451 |    1338 |
++--------------------+-------+-------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'NY'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++------------------------------+-------+-------+---------+
+| name                         | sales | cost  | profits |
++------------------------------+-------+-------+---------+
+| Wireless N Modem Router      | 10309 |  9062 |    1247 |
+| Office Suite (Basic Edition) | 33989 | 33012 |     977 |
+| Composite AV Cable (24 in.)  |  2419 |  1555 |     864 |
+| Basic Desktop                | 61989 | 61174 |     815 |
+| Cable Modem                  |  6829 |  6286 |     543 |
++------------------------------+-------+-------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'VA'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++-----------------------------------------+-------+-------+---------+
+| name                                    | sales | cost  | profits |
++-----------------------------------------+-------+-------+---------+
+| Multimedia Headset                      |  5519 |  3559 |    1960 |
+| Stereo Component Streaming Media Player | 17969 | 16013 |    1956 |
+| Extension cord (10 ft., outdoor)        |  4219 |  2611 |    1608 |
+| Amplified Multimedia Speakers           |  8799 |  8412 |     387 |
+| Batteries (9V, 1 pack)                  |   629 |   444 |     185 |
++-----------------------------------------+-------+-------+---------+
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'NC'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
+empty set
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'FL'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
++-------------------------------------+-------+-------+---------+
+| name                                | sales | cost  | profits |
++-------------------------------------+-------+-------+---------+
+| 128 GB SSD Disk                     | 38689 | 32068 |    6621 |
+| Compact Charger                     |  3949 |  2684 |    1265 |
+| Extension cord (36 in., heavy duty) |  2849 |  1586 |    1263 |
+| F Jack Male-to-Male Cable (36 in.)  |  1949 |  1027 |     922 |
+| Wireless N USB Adapter              |  6629 |  5709 |     920 |
++-------------------------------------+-------+-------+---------+
+
+## Dualcore sales and profits were very low for two of these months, but we had significant growth for two others. Which states performed best during these months? 
+* For all of the months, the order of top performers and under performers stayed pretty much the same across states. Do our top performers buy different products during tougher eocnomic conditions?
+
+SELECT p.name, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01' AND f.state = 'PA'
+GROUP BY p.name ORDER BY profits DESC
+LIMIT 5;
+
+Which brands have been the most and least profitable?
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+GROUP BY p.brand ORDER BY profits DESC
+WHERE f.Date = '2011-06-01'
+LIMIT 5;
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id GROUP BY p.brand ORDER BY profits DESC LIMIT 20;
++------------------+------------+------------+-----------+
+| brand            | sales      | cost       | profits   |
++------------------+------------+------------+-----------+
+| Megachango       | 1125690980 |  895805537 | 229885443 |
+| Orion            | 1842070780 | 1613349084 | 228721696 |
+| Dualcore         | 1658101980 | 1468933147 | 189168833 |
+| Sparky           | 1200239340 | 1022113131 | 178126209 |
+| ACME             | 1333104119 | 1173483802 | 159620317 |
+| ElCheapo         | 1082462656 |  935746682 | 146715974 |
+| Duff             |  771428774 |  627318500 | 144110274 |
+| Foocorp          |  794003847 |  653123707 | 140880140 |
+| Ultramegaco      |  738348052 |  604207316 | 134140736 |
+| DevNull          |  735961449 |  619982130 | 115979319 |
+| United Digistuff |  937368767 |  830539082 | 106829685 |
+| McDowell         |  424875153 |  320430287 | 104444866 |
+| Tyrell           |  470325146 |  369509408 | 100815738 |
+| Krustybitz       |  700500020 |  601166198 |  99333822 |
+| TPS              |  864764333 |  768906996 |  95857337 |
+| Chestnut         |  251806265 |  156810264 |  94996001 |
+| XYZ              |  746236266 |  651337461 |  94898805 |
+| Lemmon           | 1004100761 |  914458812 |  89641949 |
+| BuckLogix        |  690942923 |  603500106 |  87442817 |
+| Bigdeal          |  312289847 |  235225677 |  77064170 |
++------------------+------------+------------+-----------+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id GROUP BY p.brand ORDER BY profits ASC LIMIT 20;
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id GROUP BY p.brand ORDER BY profits ASC LIMIT 20;
++----------------+------------+------------+----------+
+| brand          | sales      | cost       | profits  |
++----------------+------------+------------+----------+
+| Weebits        |   20557389 |   19327232 |  1230157 |
+| Byteweasel     | 4893541781 | 4889903802 |  3637979 |
+| Artie          |   57399240 |   49926981 |  7472259 |
+| Bytefortress   |   21142431 |   13101417 |  8041014 |
+| Weisenheimer   |  159628496 |  151317563 |  8310933 |
+| Whiteacre      |   41369370 |   32376743 |  8992627 |
+| Texi           |  164874369 |  154608578 | 10265791 |
+| Overtop        |  210058956 |  197915184 | 12143772 |
+| SuperGamer     |  228908615 |  206968059 | 21940556 |
+| Bitmonkey      |  264143802 |  238749918 | 25393884 |
+| ARCAM          |  155932110 |  126115858 | 29816252 |
+| Terrapin Sands |  161601222 |  130435560 | 31165662 |
+| Gigabux        |  132352712 |   99361462 | 32991250 |
+| Chatter Audio  |  250694606 |  217347070 | 33347536 |
+| Spindown       |  192218608 |  158560026 | 33658582 |
+| Sprite         |  131766321 |   93174851 | 38591470 |
+| Wernham        |  294592612 |  255434039 | 39158573 |
+| BDT            |  384232490 |  344863543 | 39368947 |
+| Electrosaurus  |  563365208 |  522179115 | 41186093 |
+| Tortoise       |  302604531 |  259472733 | 43131798 |
++----------------+------------+------------+----------+
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2011-06-01'
+GROUP BY p.brand ORDER BY profits DESC
+LIMIT 5;
+
++------------+--------+--------+---------+
+| brand      | sales  | cost   | profits |
++------------+--------+--------+---------+
+| Orion      | 942912 | 803179 |  139733 |
+| Megachango | 750005 | 613528 |  136477 |
+| Foocorp    | 717342 | 591345 |  125997 |
+| Dualcore   | 848570 | 731605 |  116965 |
+| Sparky     | 796204 | 680956 |  115248 |
++------------+--------+--------+---------+
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2010-03-01'
+GROUP BY p.brand ORDER BY profits DESC
+LIMIT 5;
++------------+--------+--------+---------+
+| brand      | sales  | cost   | profits |
++------------+--------+--------+---------+
+| Sparky     | 539666 | 442549 |   97117 |
+| Foocorp    | 524692 | 430225 |   94467 |
+| Orion      | 480989 | 420405 |   60584 |
+| BuckLogix  | 354546 | 295235 |   59311 |
+| Megachango | 290776 | 239773 |   51003 |
++------------+--------+--------+---------+
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2008-07-01'
+GROUP BY p.brand ORDER BY profits DESC
+LIMIT 5;
+
+SELECT p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+WHERE f.Date = '2011-06-01' AND f.state = 'PA'
+GROUP BY p.brand ORDER BY profits DESC
+LIMIT 5;
+
++---------------+-------+-------+---------+
+| brand         | sales | cost  | profits |
++---------------+-------+-------+---------+
+| Olde-Gray     | 62469 | 59514 |    2955 |
+| Chatter Audio | 17999 | 15463 |    2536 |
+| McDowell      |  1739 |  1325 |     414 |
+| Dorx          |  2879 |  2545 |     334 |
++---------------+-------+-------+---------+
+
+CREATE VIEW brands_VW AS
+SELECT f.Date, p.brand, SUM(p.price) AS sales, SUM(p.cost) AS cost, SUM(p.price-p.cost) AS profits FROM fact f LEFT JOIN product p ON f.prod_id = p.prod_id
+GROUP BY p.brand, f.Date;
+
 
